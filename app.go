@@ -8,7 +8,7 @@ import (
 )
 
 // Data source constants are used as just a demo of how actual different data source can be used in real project,
-// and the right one gets instantiated depending on the env var. 
+// and the right one gets instantiated depending on the env var.
 const (
 	DataSourceLocal = "local"
 	DataSourceYahoo = "yahoo"
@@ -28,9 +28,9 @@ func BuildApp() (App, error) {
 
 	authorizer := api.NewAPIKeyAuthorizer(dataSource)
 
-	payrollController := api.NewPortfolioController(dataSource)
+	portfolioController := api.NewPortfolioController(dataSource)
 	router := NewRouter(Controllers{
-		portfolioController: payrollController,
+		portfolioController: portfolioController,
 	}, authorizer)
 
 	return App{
